@@ -1,0 +1,25 @@
+# Arquivos gerados automaticamente
+__pycache__/
+*.pyc
+
+# Arquivos de configuração
+*.env
+*.ini
+
+# Dependências instaladas
+venv/
+env/
+lib/
+bin/
+
+# Arquivos de log
+*.log
+logs/
+
+# Outros arquivos
+*.DS_Store
+*.pyo
+*.pyd
+
+
+outputs/
