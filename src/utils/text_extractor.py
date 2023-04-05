@@ -20,7 +20,17 @@ class TextExtractor:
 
     def sanitize_page_text(self, page: str):
         page = page[page.find("[") : page.rfind("]") + 1]
-        return re.sub("[\x00-\x1f\x7f-\x9f]", "", page)
+
+        break_lines_and_tabs_without_example_pattern = (
+            r'((?<![\\])["\'])(?:\\.|(?!\1)[^\\\n])*\1|[\n\t]+'
+        )      
+        
+        return re.sub(
+            break_lines_and_tabs_without_example_pattern,
+            lambda match: match.group(0) if match.group(0)[0] in "\"'" else "",
+            page,
+        )
+        
 
     def get_pages(self) -> List[PageContent]:
         return self.pages
