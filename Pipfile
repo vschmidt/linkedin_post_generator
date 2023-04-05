@@ -15,6 +15,8 @@ lxml = "*"
 [dev-packages]
 black = "*"
 pyclean = "*"
+isort = "*"
+autoflake = "*"
 
 [requires]
 python_version = "3.10"
