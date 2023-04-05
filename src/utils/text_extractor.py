@@ -12,24 +12,15 @@ class TextExtractor:
         self.extract_pages()
 
     def extract_pages(self):
-        sanitized_pages = self.sanitize_page_text(self.text)
-        pages_extracted = json.loads(sanitized_pages)
+        pattern = r'\{.*?"title":\s*"(.*?)",\s*"description":\s*"(.*?)",\s*"example":\s*"(.*?)".*?\}'
 
-        for page_extracted in pages_extracted:
+        for match in re.finditer(pattern, self.text, re.DOTALL):
+            page_extracted = {
+                "title": match.group(1),
+                "description": match.group(2),
+                "example": match.group(3),
+            }
             self.pages.append(PageContent(**page_extracted))
-
-    def sanitize_page_text(self, page: str):
-        page = page[page.find("[") : page.rfind("]") + 1]
-
-        break_lines_and_tabs_without_example_pattern = (
-            r'((?<![\\])["\'])(?:\\.|(?!\1)[^\\\n])*\1|[\n\t]+'
-        )
-
-        return re.sub(
-            break_lines_and_tabs_without_example_pattern,
-            lambda match: match.group(0) if match.group(0)[0] in "\"'" else "",
-            page,
-        )
 
     def get_pages(self) -> List[PageContent]:
         return self.pages
