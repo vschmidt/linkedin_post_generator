@@ -1,7 +1,8 @@
+from io import BytesIO
+
 import openai
 import requests
 from PIL import Image
-from io import BytesIO
 
 
 class DALLEImageGenerator:

@@ -1,8 +1,8 @@
 from src.infrastructure.openai.text_generator import OpenAITextGenerator
-from src.settings.environment import EnvironmentVariables
-from src.settings.app import AppVariables
-from src.utils.text_extractor import TextExtractor
 from src.infrastructure.processors.pdf import PagePDFGenerator
+from src.settings.app import AppVariables
+from src.settings.environment import EnvironmentVariables
+from src.utils.text_extractor import TextExtractor
 
 # Configurações
 app_variables = AppVariables()

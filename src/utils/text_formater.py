@@ -1,11 +1,10 @@
-from reportlab.lib.colors import HexColor
-from reportlab.platypus import Paragraph
-from reportlab.lib.styles import ParagraphStyle
-from reportlab.lib.enums import TA_LEFT
-from reportlab.lib.units import inch
-
 from pygments.lexers.python import PythonLexer
 from pygments.token import Token
+from reportlab.lib.colors import HexColor
+from reportlab.lib.enums import TA_LEFT
+from reportlab.lib.styles import ParagraphStyle
+from reportlab.lib.units import inch
+from reportlab.platypus import Paragraph
 
 
 class PygmentsCodeColoredText:

@@ -1,8 +1,8 @@
 import tempfile
-from pygments import highlight
-from pygments.lexers.python import PythonLexer
-from pygments.formatters import ImageFormatter
 
+from pygments import highlight
+from pygments.formatters import ImageFormatter
+from pygments.lexers.python import PythonLexer
 
 
 class CodeToImage:
